@@ -1,7 +1,5 @@
 package com.cykidz.truyendulieuquafragment
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -25,13 +23,13 @@ class Home : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         var chuoiso : ArrayList<Int> = ArrayList()
         button.setOnClickListener {
-            chuoiso.add(editText2.text.toString().toInt())
+            chuoiso.add(edtpt1.text.toString().toInt())
 
-            chuoiso.add(editText3.text.toString().toInt())
+            chuoiso.add(edtpt2.text.toString().toInt())
 
-            chuoiso.add(editText4.text.toString().toInt())
+            chuoiso.add(edtpt3.text.toString().toInt())
             val bundle = Bundle().apply {
-                putString("KEY.edt", editText.text.toString())
+                putString("KEY.edt", edtchuoi.text.toString())
                 putIntegerArrayList("KEY.chuoiso",chuoiso)
             }
             Navigation.findNavController(it).navigate(R.id.result,bundle)

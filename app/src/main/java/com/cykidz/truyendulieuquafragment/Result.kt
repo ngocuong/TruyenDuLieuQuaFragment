@@ -43,15 +43,15 @@ class Result : Fragment() {
 
         for (i in 1 until length + 1) {
             for (j in i - 1 until i) {
-                Log.d("III", i.toString() + " " + j.toString())
+                //Log.d("III", i.toString() + " " + j.toString())
                 if (max < text.toString().substring(j, i).toInt()) {
                     max = text.toString().substring(j, i).toInt()
                 }
                 if (min > text.toString().substring(j, i).toInt()) {
                     min = text.toString().substring(j, i).toInt()
                 }
-                txtrsmin.text = "So nho nhat la " + min.toString()
-                txtrsmax.text = "So lon nhat la " + max.toString()
+                txtrsmin.text = "So nho nhat la $min"
+                txtrsmax.text = "So lon nhat la $max"
             }
         }
 
@@ -62,10 +62,10 @@ class Result : Fragment() {
             if (chuoimin > chuoiso!![i]) {
                 chuoimin = chuoiso!![i]
             }
-            txtamax.text = "Phan tu lon nhat la " + chuoimax.toString()
-            txtamin.text = "Phan tu nho nhat la " + chuoimin.toString()
+            txtamax.text = "Phan tu lon nhat la $chuoimax"
+            txtamin.text = "Phan tu nho nhat la $chuoimin"
             tonga += chuoiso!![i].toString() + " "
-            Log.d("tonga", tonga)
+            //Log.d("tonga", tonga)
             txta.text = tonga
         }
     }
