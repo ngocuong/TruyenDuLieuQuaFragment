@@ -6,6 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_result.*
+import android.view.Menu
+import android.view.MenuItem
+import android.view.MenuInflater
+import androidx.navigation.Navigation
+import kotlinx.android.synthetic.main.result_content.*
 
 
 class Result : Fragment() {
@@ -13,10 +18,24 @@ class Result : Fragment() {
     var mang: ArrayList<Int>? = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         arguments?.let {
             chuoi = it.getString("KEY.chuoiso")
             mang = it.getIntegerArrayList("KEY.mang")
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == R.id.back) {
+            Navigation.findNavController(result_view).navigate(R.id.home2)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onCreateView(
@@ -65,5 +84,15 @@ class Result : Fragment() {
             //Log.d("tonga", tonga)
             txta.text = tonga
         }
+        BacktoHome()
+    }
+
+    fun BacktoHome() {
+        btnback.setOnClickListener {
+            Navigation.findNavController(result_view).navigate(R.id.home2)
+
+        }
     }
 }
+
+
