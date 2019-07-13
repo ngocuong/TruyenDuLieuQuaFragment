@@ -29,8 +29,8 @@ class Home : Fragment() {
 
             chuoiso.add(edtpt3.text.toString().toInt())
             val bundle = Bundle().apply {
-                putString("KEY.edt", edtchuoi.text.toString())
-                putIntegerArrayList("KEY.chuoiso",chuoiso)
+                putString("KEY.chuoiso", edtchuoi.text.toString())
+                putIntegerArrayList("KEY.mang",chuoiso)
             }
             Navigation.findNavController(it).navigate(R.id.result,bundle)
         }
